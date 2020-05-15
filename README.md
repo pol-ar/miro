@@ -13,8 +13,9 @@ Miro [frontend test task](https://docs.google.com/document/d/1VGyYpWzPyaAnJAesaM
 ## EmailsInput
 Reusable component for handling adding/deleting emails. List of emails can't contain duplicate values.
 
-###Usage
-To use EmailsInput add emails-input.js script to your html page and create instance of EmailsInput class. Here's an example.
+### Usage
+To use EmailsInput add emails-input.js script to your html page and create instance of EmailsInput class.
+#### Example
 ```html
 <script src="emails-input.js"></script>
 <script>
@@ -22,17 +23,17 @@ To use EmailsInput add emails-input.js script to your html page and create insta
     var emailsInput = new EmailsInput({id: 'emails-input', parent: inputContainerNode});
     ....
 ```
-####EmailsInput constructor options
+#### EmailsInput constructor options
 * id - value of id attribute for input element
 * parent - parent node for input element
 
 ## EmailsInput instance public API
 
-###emails
+### emails
 The emails property of the EmailsInput interface gets and sets the list of email values.
 Set property can accept array of strings, comma-separated string of values, null, undefined.
 All other types of values will be coerced to array of strings.
-####Example
+#### Example
 ```javascript
     emailsInput.emails = ['1@miro.com', '2@miro.com'];
     console.log(emailsInput.emails); // ['1@miro.com', '2@miro.com']
@@ -47,10 +48,10 @@ All other types of values will be coerced to array of strings.
     console.log(emailsInput.emails); // ['1']
 ```
 
-###validEmails
+### validEmails
 The validEmails read-only property returns the number of valid emails in the input.
 
-####Example
+#### Example
 ```javascript
     emailsInput.emails = ['1@miro.com', '1'];
     console.log(emailsInput.validEmails); // 1
@@ -59,10 +60,10 @@ The validEmails read-only property returns the number of valid emails in the inp
     console.log(emailsInput.validEmails); // 0
 ```
 
-###subscribe()
+### subscribe()
 The subscribe() method adds listener to input values changes event. Return value is a function to unsubscribe.
 
-####Example
+#### Example
 ```javascript
     var unsubscribe = emailsInput.subscribe(function() {
         console.log('Values changed');
