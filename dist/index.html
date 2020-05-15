@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Miro Test</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="emails-form">
+        <h3 class="emails-form__title">Share <b>Board name</b> with others</h3>
+        <div class="emails-form__input-container" id="emails-input-container"></div>
+        <div class="emails-form__footer">
+            <button class="emails-form__button" onclick="addRandomEmail()">
+                Add email
+            </button>
+            <button class="emails-form__button" onclick="showEmailsCount()">
+                Get emails count
+            </button>
+        </div>
+    </div>
+    <script src="emails-input.js"></script>
+    <script>
+        var inputContainerNode = document.querySelector('#emails-input-container');
+        var emailsInput = new EmailsInput({id: 'emails-input', parent: inputContainerNode});
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        function getRandomEmail() {
+            var names = ['mike', 'john', 'alexander', 'carina', 'jessica', 'britney'];
+            var randomName = names[getRandomInt(names.length)];
+            return randomName + getRandomInt(100) + '@miro.com';
+        }
+        function addRandomEmail() {
+            emailsInput.emails = emailsInput.emails.concat(getRandomEmail());
+        }
+        function showEmailsCount() {
+            window.alert('Valid emails count: ' + emailsInput.validEmails.length);
+        }
+    </script>
+</body>
+</html>
