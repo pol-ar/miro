@@ -49,15 +49,15 @@ All other types of values will be coerced to array of strings.
 ```
 
 ### validEmails
-The validEmails read-only property returns the number of valid emails in the input.
+The validEmails read-only property returns the list of valid emails in the input.
 
 #### Example
 ```javascript
     emailsInput.emails = ['1@miro.com', '1'];
-    console.log(emailsInput.validEmails); // 1
+    console.log(emailsInput.validEmails); // ['1@miro.com']
 
     emailsInput.emails = [];
-    console.log(emailsInput.validEmails); // 0
+    console.log(emailsInput.validEmails); // []
 ```
 
 ### subscribe()
